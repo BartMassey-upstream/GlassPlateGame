@@ -33,7 +33,11 @@ app.use(bodyParser.json());
 
 app.get("/", (req,res) => res.sendFile(__dirname, + 'index'));
 
-app.listen(config.ipSettings.expressPort, () => console.log("Express on: "+ config.ipSettings.expressPort));
+app.listen(
+    config.ipSettings.expressPort,
+    config.ipSettings.IP,
+    () => console.log("Express on: "+ config.ipSettings.expressPort),
+);
 
 app.post('/game', (req, res) => {
   const game = req.body.gameID;

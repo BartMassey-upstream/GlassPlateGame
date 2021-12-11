@@ -43,7 +43,11 @@ const stateMac = require('../public/javascripts/stateMachine');
 
 //HTTP server start
 const httpServer = http.createServer(app);
-httpServer.listen(config.ipSettings.httpPort, () => console.log("Http on: "+ config.ipSettings.httpPort));
+httpServer.listen(
+    config.ipSettings.httpPort,
+    config.ipSettings.IP,
+    () => console.log("Http on: "+ config.ipSettings.httpPort),
+);
 httpServer.on('error', onError);
 httpServer.on('listening', onListening);
 
